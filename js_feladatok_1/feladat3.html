@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+</head>
+<body>
+    <p id="bekezdes">...</p>
+    <img onload="betolt()" style="width: 500px;" src="./How-to-Fix-Windows-11-Stopped-Booting-After-Restart.jpg" alt="win11" onclick="change_text()">
+    <script>
+        function change_text(){
+            $('#bekezdes').html("Rákattintott!");
+            }
+        
+        function betolt(){
+             $('#bekezdes').html("Betöltődött!");
+            }
+    </script>
+</body>
+</html>
