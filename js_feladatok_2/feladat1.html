@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 </head>
 <body>
     <p>Gondoltam egy számot 1 és 100 között!<br>Tippeld meg, mi volt az a szám!</p>
@@ -21,7 +22,7 @@
         }
         
         function vizsgalat(){
-            var tipp = document.getElementById('tippel').value; 
+            var tipp = $('#tippel').val(); 
             if (vSzam > tipp){
                 var kiiras = 'A gondolt szám nagyobb!'; 
             }
@@ -31,7 +32,7 @@
             else{
                 kiiras = 'Eltaláltad!';
             }
-            document.getElementById('eredmeny').innerText = kiiras;
+            $('#eredmeny').html(kiiras);
         }
         
         function ujSzamGen(){

@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
 </head>
 <body>
     <span>A háromszög 'a' oldala: </span><input type="text" size="5" id="aOldal"><span> cm</span><br><br>
@@ -17,16 +19,16 @@
     <script>
         function szamol(){
 
-            var a = parseFloat(document.getElementById('aOldal').value)
-            var b = parseFloat(document.getElementById('bOldal').value)
-            var c = parseFloat(document.getElementById('cOldal').value)
+            var a = parseFloat($('#aOldal').val());
+            var b = parseFloat($('#bOldal').val());
+            var c = parseFloat($('#cOldal').val());
 
             var K = a + b + c;
             var s = K / 2;
             var T = Math.sqrt( s * (s - a) * (s - b) * (s - c) );
 
-            document.getElementById('teruletKiir').innerHTML = K;
-            document.getElementById('keruletKiir').innerHTML = T; 
+            $('#teruletKiir').html(K);
+            $('#keruletKiir').html(T); 
 
     }
     </script>

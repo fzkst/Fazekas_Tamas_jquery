@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
 </head>
 <body>
     <p>Adj meg egy számot 1 és 7 között!</p><input type="text" id="szam" size="5" onchange="napokNeve()">
@@ -12,7 +14,7 @@
 
     <script>
         function napokNeve(){
-            var napSzam = parseInt(document.getElementById('szam').value);   
+            var napSzam = parseInt($('#szam').val());   
             var nap;
             switch (napSzam){
                 case 1: 
@@ -40,10 +42,10 @@
                     nap = 'Nem megfelelő számot adott meg!';
             }
             if (nap == 'Nem megfelelő számot adott meg!'){
-                document.getElementById('napok').innerHTML = nap;
+                $('#napok').html(nap);
             }
             else{
-                document.getElementById('napok').innerHTML = "A hét " + napSzam + ". napja: " + nap;
+                $('#napok').html("A hét " + napSzam + ". napja: " + nap); 
             }
         }
     </script>
