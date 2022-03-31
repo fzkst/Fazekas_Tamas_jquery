@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. feladat</title>
+</head>
+<body style="background-color: rgb(243, 228, 187);">
+    <form name="kabel_rendelo" method="POST">
+        <h3>Válassza ki, hogy milyen kábelt szeretne megrendelni!</h3><br>
+        <p>Kérem, adja meg az adatait!</p>
+        <label for="nev">Neve: </label>
+        <input type="text" name="nev" id="nev"><br><br>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email"><br><br><br>
+        <label for="gyarto">Válassza ki a kábel gyártóját!</label><br><br>
+        <select name="gyarto" id="gyarto">
+            <option value="audioquest">Audioquest</option>
+            <option value="inakustik">Inakustik</option>
+            <option value="qed">QED</option>
+            <option value="oehlbach">Oehlbach</option>
+        </select><br><br><br>
+
+        <p>Válassza ki a kábel típusát!</p>
+        <label for="HDMI">HDMI</label>
+        <input type="radio" value="HDMI" name="tipus" id="HDMI"><br>
+        <label for="hangfalkabel">Hangfalkábel</label>
+        <input type="radio" value="hangfalkabel" name="tipus" id="hangfalkabel"><br>
+        <label for="RCA">RCA kábel</label>
+        <input type="radio" value="RCA" name="tipus" id="RCA"><br>
+        <label for="XLR">XLR kábel</label>
+        <input type="radio" value="XLR" name="tipus" id="XLR"><br><br>
+
+        <p>Válassza ki a kábel hosszát!</p>
+        <label for="hatva">60 cm</label>
+        <input type="radio" value="hatvan" name="hossz" id="hatvan"><br>
+        <label for="egy">100 cm</label>
+        <input type="radio" value="egy" name="hossz" id="egy"><br>
+        <label for="masfel">150 cm</label>
+        <input type="radio" value="masfel" name="hossz" id="masfel"><br>
+        <label for="ketto">200 cm</label>
+        <input type="radio" value="ketto" name="hossz" id="ketto"><br>
+        <label for="harom">300 cm</label>
+        <input type="radio" value="harom" name="hossz" id="harom"><br><br>
+
+        <p>Válassza ki a kábel színét!</p>
+        <input list="os" name="szin">
+        <datalist id="os">
+            <option value="piros">
+            <option value="fekete">
+            <option value="kék">
+            <option value="zold">
+        </datalist><br><br>
+        <input type="button" id="rendel" value="Rendelés">
+    </form>
+
+    <script>
+        document.getElementById('rendel')
+        .addEventListener('click', () => {
+            let nev = document.forms['kabel_rendelo']['nev'].value;
+            let email = document.forms['kabel_rendelo']['email'].value;
+            let gyarto = document.forms['kabel_rendelo']['gyarto'].value;
+            let tipus = document.forms['kabel_rendelo']['tipus'].value;
+            let hossz = document.forms['kabel_rendelo']['hossz'].value;
+            let szin = document.forms['kabel_rendelo']['szin'].value;
+            let minden_kitoltve = true;
+            if (nev === '') {
+                minden_kitoltve = false;
+                alert('A név kitöltése kötelező!')
+            }
+            if (email === '') {
+                minden_kitoltve = false;
+                alert('A név kitöltése kötelező!')
+            }
+            if (gyarto === '') {
+                minden_kitoltve = false;
+                alert('A név kitöltése kötelező!')
+            }
+            if (tipus === '') {
+                minden_kitoltve = false;
+                alert('A név kitöltése kötelező!')
+            }
+            if (hossz === '') {
+                minden_kitoltve = false;
+                alert('A név kitöltése kötelező!')
+            }
+            if (szin === '') {
+                minden_kitoltve = false;
+                alert('A név kitöltése kötelező!')
+            }
+            if (minden_kitoltve){
+                let rendeles = {
+                nev: nev,
+                email: email,
+                gyarto: gyarto,
+                hossz: hossz,
+                szin: szin,
+                
+            };
+            console.log(rendeles); 
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. feladat</title>
+</head>
+<body> 
+    <header>
+        <div>
+            <img src="./pizza-header.jpg" alt="pizza" >
+        </div>
+    </header>
+    
+    <div>
+        <form name="pizza_rendeles" method="POST">
+            <h3>Megrendelő adatai:</h3><br>
+            <label for="nev">Teljes név: </label>
+            <input type="text" name="nev" id="nev" size="22"><br><br>
+            <label for="telefonszam">Telefonszám: </label>
+            <input type="tel" name="telefonszam" id="telefonszam"placeholder="+36"><br><br>
+            <label for="iranyitoszam">Irányítószám: </label>
+            <input type="text" name="iranyitoszam" id="iranyitoszam" size="5"><br><br>
+            <label for="varos">Város: </label>
+            <input type="text" name="varos" id="varos"><br><br>
+            <label for="utca">Utca</label>
+            <input type="text" name="utca" id="utca" size="22"><br><br>
+            <label for="hazszam">Házszám: </label>
+            <input type="text" name="hazszam" id="hazszam" size="1"><br><br><br>
+            <h3>Pizza kiválasztása:</h3>
+            <p>Pizza alapok:</p>
+            <select name="pizza_alap" id="pizza_alap">
+                <option value="tejfolos">tejfölös alap</option>
+                <option value="paradicsomos">paradicsomos alap</option>
+                <option value="fokhagymás">fokhagymás alap</option>
+            </select>
+            <p>Feltétek:</p>
+            <label for="sonka">sonka</label>
+            <input type="checkbox" name="feltetek[]" id="sonka" value="sonka">
+            <label for="gomba">gomba</label>
+            <input type="checkbox" name="feltetek[]" id="gomba" value="gomba">
+            <label for="kukorica">kukorica</label>
+            <input type="checkbox" name="feltetek[]" id="kukorica" value="kukorica">
+            <label for="bacon">bacon</label>
+            <input type="checkbox" name="feltetek[]" id="bacon" value="bacon">
+            <label for="tojás">tojás</label>
+            <input type="checkbox" name="feltetek[]" id="tojás" value="tojás">
+            <label for="mozzarella">mozzarella</label>
+            <input type="checkbox" name="feltetek[]" id="mozzarella" value="mozzarella"><br>
+            <label for="szalámi">szalámi</label>
+            <input type="checkbox" name="feltetek[]" id="szalámi" value="szalámi">
+            <label for="pepperone">pepperone</label>
+            <input type="checkbox" name="feltetek[]" id="pepperone" value="pepperone">
+            <label for="bab">bab</label>
+            <input type="checkbox" name="feltetek[]" id="bab" value="bab">
+            <label for="chili">chili</label>
+            <input type="checkbox" name="feltetek[]" id="chili" value="chili">
+            <label for="gamberoni">gamberoni</label>
+            <input type="checkbox" name="feltetek[]" id="gamberoni" value="gamberoni">
+            <label for="olivabogyo">olivabogyó</label>
+            <input type="checkbox" name="feltetek[]" id="olivabogyo" value="olivabogyo"><br>
+            <label for="tarja">tarja</label>
+            <input type="checkbox" name="feltetek[]" id="tarja" value="tarja">
+            <label for="tonhal">tonhal</label>
+            <input type="checkbox" name="feltetek[]" id="tonhal" value="tonhal">
+            <label for="hagyma">hagyma</label>
+            <input type="checkbox" name="feltetek[]" id="hagyma" value="hagyma">
+            <label for="ananasz">ananász</label>
+            <input type="checkbox" name="feltetek[]" id="ananasz" value="ananasz">
+            <p>Egyéb:</p>
+            <textarea name="" id="megjegyzes" cols="30" rows="7" placeholder="Megjegyzés:"></textarea><br>
+            <input type="button" id="felvetel" value="felvétel">
+        </form>
+    </div>
+    
+    <style>
+        body{
+            background-color: rgb(48, 46, 46);;
+        }
+        img{
+            float: right;
+        }
+        html{
+            color: beige;
+        }
+        h3 {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        document.getElementById('felvetel')
+        .addEventListener('click', () => {
+            let nev = document.forms['pizza_rendeles']['nev'].value;
+            let telefonszam = document.forms['pizza_rendeles']['telefonszam'].value;
+            let iranyitoszam = document.forms['pizza_rendeles']['iranyitoszam'].value;
+            let varos = document.forms['pizza_rendeles']['varos'].value;
+            let utca = document.forms['pizza_rendeles']['utca'].value;
+            let hazszam = document.forms['pizza_rendeles']['hazszam'].value;
+            let alap = document.forms['pizza_rendeles']['pizza_alap'].value;
+            let feltetek = document.forms['pizza_rendeles']['feltetek[]'];
+            let feltetek_kivalasztott = [];
+            let megjegyzes = document.forms['pizza_rendeles']['megjegyzes'].value;
+            for (let i = 0; i < feltetek.length; i++) {
+            const elem = feltetek[i];
+                if (elem.type == 'checkbox' && elem.checked == true) {
+                    feltetek_kivalasztott.push(elem.value);
+                }
+            }
+            let minden_kitoltve = true;
+            if (nev === '') {
+                minden_kitoltve = false;
+                alert('A név kitöltése kötelező!')
+            }
+            if (telefonszam === '') {
+                minden_kitoltve = false;
+                alert('A telefonszám megadása kötelező!')
+            }
+            if (iranyitoszam === '') {
+                minden_kitoltve = false;
+                alert('Az irányítószám megadása kötelező!')
+            }
+            if (varos === '') {
+                minden_kitoltve = false;
+                alert('Az város megadása kötelező!')
+            }
+            if (hazszam === '') {
+                minden_kitoltve = false;
+                alert('A házszám megadása kötelező!')
+            }
+            if (feltetek_kivalasztott.length < 2) {
+                minden_kitoltve = false;
+                alert('Minimum 2 feltétet ki kell választania!')
+            }
+            if (minden_kitoltve) {
+            let pizza_rendeles = {
+                nev: nev,
+                telefonszam: telefonszam,
+                iranyitoszam: iranyitoszam,
+                varos: varos,
+                utca: utca,
+                hazszam: hazszam,
+                alap: alap,
+                feltetek: feltetek_kivalasztott,
+                megjegyzes: megjegyzes,
+            };
+            console.log(pizza_rendeles);
+            }
+        });
+        
+
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <script src="alap_muveletek.js"></script>
+    <script>
+        function osszeAdClick() { 
+            var a = document.getElementById('input_a').value;
+            var b = document.getElementById('input_b').value;
+            //alert(osszeAd(a,b));
+            document.getElementById('eredmeny').innerHTML = osszeAd(a,b);
+         }
+         function kivonClick() { 
+            var a = document.getElementById('input_a').value;
+            var b = document.getElementById('input_b').value; 
+            document.getElementById('eredmeny').innerHTML = kivon(a,b);
+         }
+         function szorozClick() { 
+            var a = document.getElementById('input_a').value;
+            var b = document.getElementById('input_b').value;
+            document.getElementById('eredmeny').innerHTML = szoroz(a,b);
+         }
+         function osztClick() { 
+            var a = document.getElementById('input_a').value;
+            var b = document.getElementById('input_b').value;
+            document.getElementById('eredmeny').innerHTML = oszt(a,b);
+         }
+         function modClick() { 
+            var a = document.getElementById('input_a').value;
+            var b = document.getElementById('input_b').value;
+            document.getElementById('eredmeny').innerHTML = mod(a,b);
+         }
+    </script>
+</head>
+<body>
+    <input type="number" name="input_a" id="input_a">
+    <br>
+    <input type="number" name="input_b" id="input_b">
+    <br>
+    <button onclick="osszeAdClick();">Összead (+)</button> <br>
+    <button onclick="kivonClick()">Kivon (-)</button><br>
+    <button onclick="szorozClick()">Szoroz (*)</button><br>
+    <button onclick="osztClick()">Oszt (/)</button><br>
+    <button onclick="modClick()">Maradékos osztás (%)</button><br>
+    <p>Eredmény: <span id="eredmeny"></span></p>
+    <!--
+    <p>Előtte</p>
+    <script>
+
+        var a = 10;
+        var b = 20;
+        console.log(a+b);
+        alert(a+b); 
+        //alert("sajt");
+        //Egysoros komment
+        /*
+            Többsoros komment
+        */
+    </script>
+    <p>Utána</p>
+    -->
+</body>
+</html>

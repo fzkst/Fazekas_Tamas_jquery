@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. feladat</title>
+</head>
+<body style="background-color: rgb(92, 157, 243);">
+
+    <p>Írjon be egy tetszőleges szöveget!</p>
+    <input type="text" id="szoveg"><br><br>
+    <label for="kisbetus">Kisbetűs</label>
+    <input type="radio" id="kisbetus" name="valaszto"><br>
+    <label for="nagybetus">Nagybetűs</label>
+    <input type="radio" id="nagybetus" name="valaszto"><br><br>
+    <button id="atalakitas">Átalakítás</button>
+    
+
+    <script>
+
+        let gomb = document.getElementById('atalakitas');
+        gomb.addEventListener("click", atalakit);
+
+        function atalakit(){
+            let kicsi = document.getElementById('kisbetus').checked;
+            let nagy = document.getElementById('nagybetus').checked;
+            let szoveg = document.getElementById('szoveg').value
+            
+            if (szoveg == ""){
+                alert("Nem adott meg szöveget!")
+            }
+            else if (kicsi == false && nagy == false){
+                alert("Nem választott gombot!")
+            }
+            if (kicsi == true){
+                document.getElementById('szoveg').value = szoveg.toLowerCase();
+            }
+            else if (nagy == true){
+                document.getElementById('szoveg').value = szoveg.toUpperCase();
+            }
+        }
+    </script>
+</body>
+</html>

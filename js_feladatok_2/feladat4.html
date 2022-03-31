@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. feladat</title>
+</head>
+<body>
+    <p>Adj meg egy számot 1 és 7 között!</p><input type="text" id="szam" size="5" onchange="napokNeve()">
+    <p id="napok"></p>
+
+    <script>
+        function napokNeve(){
+            var napSzam = parseInt(document.getElementById('szam').value);   
+            var nap;
+            switch (napSzam){
+                case 1: 
+                    nap = 'Hétfő';
+                    break;
+                case 2:
+                    nap = 'Kedd';
+                    break;
+                case 3: 
+                    nap = 'Szerda';
+                    break;
+                case 4:
+                    nap = 'Csütörtök';
+                    break;
+                case 5: 
+                    nap = 'Péntek';
+                    break;
+                case 6:
+                    nap = 'Szombat';
+                    break;
+                case 7: 
+                    nap = 'Vasárnap';
+                    break;
+                default:
+                    nap = 'Nem megfelelő számot adott meg!';
+            }
+            if (nap == 'Nem megfelelő számot adott meg!'){
+                document.getElementById('napok').innerHTML = nap;
+            }
+            else{
+                document.getElementById('napok').innerHTML = "A hét " + napSzam + ". napja: " + nap;
+            }
+        }
+    </script>
+</body>
+</html>

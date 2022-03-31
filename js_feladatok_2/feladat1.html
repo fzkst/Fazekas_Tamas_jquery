@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. feladat</title>
+</head>
+<body>
+    <p>Gondoltam egy számot 1 és 100 között!<br>Tippeld meg, mi volt az a szám!</p>
+    <input type="text" id="tippel"><br><br>
+    <button onclick="vizsgalat()">Tipp ellenőrzése</button>
+    <p id="eredmeny"></p>
+    <button onclick="ujSzamGen()">Új szám generálása</button>
+    
+    <script>
+        var vSzam = veletlenszam(1, 100);
+              
+        function veletlenszam(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min; 
+        }
+        
+        function vizsgalat(){
+            var tipp = document.getElementById('tippel').value; 
+            if (vSzam > tipp){
+                var kiiras = 'A gondolt szám nagyobb!'; 
+            }
+            else if (vSzam < tipp){
+                kiiras = 'A gondolt szám kisebb!';
+            }
+            else{
+                kiiras = 'Eltaláltad!';
+            }
+            document.getElementById('eredmeny').innerText = kiiras;
+        }
+        
+        function ujSzamGen(){
+            vSzam = veletlenszam(1, 100);
+        }
+    </script>
+</body>
+</html>
