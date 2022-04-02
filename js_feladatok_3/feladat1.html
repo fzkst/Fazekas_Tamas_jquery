@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
 </head>
 <body style="background-color: rgb(92, 157, 243);">
 
@@ -19,13 +21,12 @@
 
     <script>
 
-        let gomb = document.getElementById('atalakitas');
-        gomb.addEventListener("click", atalakit);
+        $('#atalakitas').on('click', atalakit);
 
         function atalakit(){
-            let kicsi = document.getElementById('kisbetus').checked;
-            let nagy = document.getElementById('nagybetus').checked;
-            let szoveg = document.getElementById('szoveg').value
+            let kicsi = $('#kisbetus').is(':checked');
+            let nagy = $('#nagybetus').is(':checked');
+            let szoveg = $('#szoveg').val()
             
             if (szoveg == ""){
                 alert("Nem adott meg szöveget!")
@@ -34,10 +35,10 @@
                 alert("Nem választott gombot!")
             }
             if (kicsi == true){
-                document.getElementById('szoveg').value = szoveg.toLowerCase();
+                $('#szoveg').val(szoveg.toLowerCase());
             }
             else if (nagy == true){
-                document.getElementById('szoveg').value = szoveg.toUpperCase();
+                $('#szoveg').val(szoveg.toUpperCase());
             }
         }
     </script>

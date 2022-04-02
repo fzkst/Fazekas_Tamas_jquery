@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
 </head>
 <body style="background-color: rgb(243, 228, 187);">
     <form name="kabel_rendelo" method="POST">
         <h3>Válassza ki, hogy milyen kábelt szeretne megrendelni!</h3><br>
+
         <p>Kérem, adja meg az adatait!</p>
         <label for="nev">Neve: </label>
         <input type="text" name="nev" id="nev"><br><br>
@@ -56,14 +59,17 @@
     </form>
 
     <script>
-        document.getElementById('rendel')
-        .addEventListener('click', () => {
-            let nev = document.forms['kabel_rendelo']['nev'].value;
-            let email = document.forms['kabel_rendelo']['email'].value;
-            let gyarto = document.forms['kabel_rendelo']['gyarto'].value;
-            let tipus = document.forms['kabel_rendelo']['tipus'].value;
-            let hossz = document.forms['kabel_rendelo']['hossz'].value;
-            let szin = document.forms['kabel_rendelo']['szin'].value;
+        $('#rendel').on('click', Rendeles);
+
+
+        function Rendeles(){
+
+            let nev = $('#nev').val();
+            let email = $('#email').val();
+            let gyarto = $('#gyarto').val();
+            let tipus = $('#tipus').val();
+            let hossz = $('[name = hossz]').val();
+            let szin = $('[name = szin]').val();
             let minden_kitoltve = true;
             if (nev === '') {
                 minden_kitoltve = false;
@@ -100,7 +106,7 @@
             };
             console.log(rendeles); 
             }
-        });
+        };
     </script>
 </body>
 </html>

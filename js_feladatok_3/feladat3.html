@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
 </head>
 <body style="background-color: rgb(146, 206, 107);">
     <form name="regisztracio" method="POST">
@@ -23,13 +25,15 @@
     </form>
 
     <script>
-        document.getElementById('regisztral')
-        .addEventListener('click', () => {
-            let felhasznalonev = document.forms['regisztracio']['felhasznalonev'].value;
-            let jelszo = document.forms['regisztracio']['jelszo'].value;
-            let jelszo2 = document.forms['regisztracio']['jelszo2'].value;
-            let email = document.forms['regisztracio']['email'].value;
-            let szuletes = document.forms['regisztracio']['szuletes'].value;
+        $('#regisztral').on('click', regisztralas)
+
+        function regisztralas(){
+
+            let felhasznalonev = $('#felhasznalonev').val();
+            let jelszo = $('#jelszo').val();
+            let jelszo2 = $('#jelszo2').val();
+            let email = $('#email').val();
+            let szuletes = $('#szuletes').val();
             let minden_kitoltve = true;
             if (felhasznalonev.length < 5 || felhasznalonev.length > 16){
                 minden_kitoltve = false;
@@ -76,7 +80,7 @@
             console.log(felhasznalo); 
             }
                    
-        });
+        };
      </script>
 </body>
 </html>

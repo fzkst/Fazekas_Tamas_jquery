@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2. feladat</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
 </head>
 <body> 
     <header>
@@ -37,37 +39,37 @@
             </select>
             <p>Feltétek:</p>
             <label for="sonka">sonka</label>
-            <input type="checkbox" name="feltetek[]" id="sonka" value="sonka">
+            <input type="checkbox" class="feltetek" name="feltetek" id="sonka" value="sonka">
             <label for="gomba">gomba</label>
-            <input type="checkbox" name="feltetek[]" id="gomba" value="gomba">
+            <input type="checkbox" class="feltetek" name="feltetek" id="gomba" value="gomba">
             <label for="kukorica">kukorica</label>
-            <input type="checkbox" name="feltetek[]" id="kukorica" value="kukorica">
+            <input type="checkbox" class="feltetek" name="feltetek" id="kukorica" value="kukorica">
             <label for="bacon">bacon</label>
-            <input type="checkbox" name="feltetek[]" id="bacon" value="bacon">
+            <input type="checkbox" class="feltetek" name="feltetek" id="bacon" value="bacon">
             <label for="tojás">tojás</label>
-            <input type="checkbox" name="feltetek[]" id="tojás" value="tojás">
+            <input type="checkbox" class="feltetek" name="feltetek" id="tojás" value="tojás">
             <label for="mozzarella">mozzarella</label>
-            <input type="checkbox" name="feltetek[]" id="mozzarella" value="mozzarella"><br>
+            <input type="checkbox" class="feltetek" name="feltetek" id="mozzarella" value="mozzarella"><br>
             <label for="szalámi">szalámi</label>
-            <input type="checkbox" name="feltetek[]" id="szalámi" value="szalámi">
+            <input type="checkbox" class="feltetek" name="feltetek" id="szalámi" value="szalámi">
             <label for="pepperone">pepperone</label>
-            <input type="checkbox" name="feltetek[]" id="pepperone" value="pepperone">
+            <input type="checkbox" class="feltetek" name="feltetek" id="pepperone" value="pepperone">
             <label for="bab">bab</label>
-            <input type="checkbox" name="feltetek[]" id="bab" value="bab">
+            <input type="checkbox" class="feltetek" name="feltetek" id="bab" value="bab">
             <label for="chili">chili</label>
-            <input type="checkbox" name="feltetek[]" id="chili" value="chili">
+            <input type="checkbox" class="feltetek" name="feltetek" id="chili" value="chili">
             <label for="gamberoni">gamberoni</label>
-            <input type="checkbox" name="feltetek[]" id="gamberoni" value="gamberoni">
+            <input type="checkbox" class="feltetek" name="feltetek" id="gamberoni" value="gamberoni">
             <label for="olivabogyo">olivabogyó</label>
-            <input type="checkbox" name="feltetek[]" id="olivabogyo" value="olivabogyo"><br>
+            <input type="checkbox" class="feltetek" name="feltetek" id="olivabogyo" value="olivabogyo"><br>
             <label for="tarja">tarja</label>
-            <input type="checkbox" name="feltetek[]" id="tarja" value="tarja">
+            <input type="checkbox" class="feltetek" name="feltetek" id="tarja" value="tarja">
             <label for="tonhal">tonhal</label>
-            <input type="checkbox" name="feltetek[]" id="tonhal" value="tonhal">
+            <input type="checkbox" class="feltetek" name="feltetek" id="tonhal" value="tonhal">
             <label for="hagyma">hagyma</label>
-            <input type="checkbox" name="feltetek[]" id="hagyma" value="hagyma">
+            <input type="checkbox" class="feltetek" name="feltetek" id="hagyma" value="hagyma">
             <label for="ananasz">ananász</label>
-            <input type="checkbox" name="feltetek[]" id="ananasz" value="ananasz">
+            <input type="checkbox" class="feltetek" name="feltetek" id="ananasz" value="ananasz">
             <p>Egyéb:</p>
             <textarea name="" id="megjegyzes" cols="30" rows="7" placeholder="Megjegyzés:"></textarea><br>
             <input type="button" id="felvetel" value="felvétel">
@@ -90,18 +92,21 @@
     </style>
 
     <script>
-        document.getElementById('felvetel')
-        .addEventListener('click', () => {
-            let nev = document.forms['pizza_rendeles']['nev'].value;
-            let telefonszam = document.forms['pizza_rendeles']['telefonszam'].value;
-            let iranyitoszam = document.forms['pizza_rendeles']['iranyitoszam'].value;
-            let varos = document.forms['pizza_rendeles']['varos'].value;
-            let utca = document.forms['pizza_rendeles']['utca'].value;
-            let hazszam = document.forms['pizza_rendeles']['hazszam'].value;
-            let alap = document.forms['pizza_rendeles']['pizza_alap'].value;
-            let feltetek = document.forms['pizza_rendeles']['feltetek[]'];
+        
+        $("#felvetel").on('click', felvesz);
+
+        function felvesz(){         
+
+            let nev = $('#nev').val();
+            let telefonszam = $('#telefonszam').val();
+            let iranyitoszam = $('#iranyitoszam').val();
+            let varos = $('#varos').val();
+            let utca = $('#utca').val();
+            let hazszam = $('#hazszam').val();
+            let alap = $('#pizza_alap').val();            
+            let feltetek = $('input.feltetek');
             let feltetek_kivalasztott = [];
-            let megjegyzes = document.forms['pizza_rendeles']['megjegyzes'].value;
+            let megjegyzes = $('#megjegyzes').val();
             for (let i = 0; i < feltetek.length; i++) {
             const elem = feltetek[i];
                 if (elem.type == 'checkbox' && elem.checked == true) {
@@ -147,7 +152,8 @@
             };
             console.log(pizza_rendeles);
             }
-        });
+        };
+        
         
 
     </script>
